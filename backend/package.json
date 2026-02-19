@@ -1,0 +1,24 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "MedAware backend, it will hold the two external API's",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js", 
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Rayat Chowdhury",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "mongo": "^0.1.0",
+    "mongoose": "^9.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11",
+    "prettier": "3.8.1"
+  }
+}
