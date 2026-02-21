@@ -13,7 +13,11 @@ export default function Homepage() {
   // define functions to the pages that it would redirect to here 
   function GetStartedNavigation() { 
     navigate('/getstarted'); 
-  } 
+  }  
+
+  function LearnMorePage() { 
+    navigate('/learnmore');
+  }
 
   return (
     <div className="homepage">
@@ -52,7 +56,7 @@ export default function Homepage() {
             <span>Start Tracking</span>
             <span className="btn-arrow">&rarr;</span>
           </button>
-          <button className="btn-secondary">Learn More</button>
+          <button onClick={LearnMorePage}className="btn-secondary">Learn More</button>
         </div>
         <div className="hero-stats">
           <div className="stat">
