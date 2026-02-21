@@ -1,13 +1,17 @@
 import '../styles/homepage.css';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 
 export default function Homepage() {
     const [isVisible, setIsVisible] = useState(false);
+    const navigate = useNavigate(); 
 
     useEffect(() => {
         setIsVisible(true);
     }, []);
 
+    // define functions to the pages that it would redirect to here 
+    
     return (
         <div className="homepage">
             {/* Animated background particles */}
@@ -34,8 +38,8 @@ export default function Homepage() {
             <section className={`hero ${isVisible ? 'hero-visible' : ''}`}>
                 <div className="hero-badge">AI-Powered Medical Advisor</div>
                 <h1 className="hero-title">
-                    Your Symptoms,{' '}
-                    <span className="gradient-text">Understood.</span>
+                    Know What You Feel. {' '}
+                    <span className="gradient-text">Understand What You Take.</span>
                 </h1>
                 <p className="hero-subtitle">
                    Track symptoms. Log medications. Understand your health.
