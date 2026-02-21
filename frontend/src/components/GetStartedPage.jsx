@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function GetStartedPage() {
   const [InputText, SetInputText] = useState("");
-  const [setLoading, loading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const inputHandler = (event) => {
@@ -20,7 +20,8 @@ export default function GetStartedPage() {
     //button to take the input data and send the data to the backend here as such
     try {
       setLoading(true);
-      // set up the response to actually send to the backend.
+      // set up the response to actually send to the backend. 
+      //TODO: set up the endpoint for the backend here to recieve the data. 
       const sendToBackend = await fetch(``, {
         method: "POST",
         headers: {
@@ -29,7 +30,7 @@ export default function GetStartedPage() {
         body: JSON.stringify({ userDescription: InputText }),
       });
       // handle some validation if data was sent to the backend here as such
-      if (!sendToBackend) {
+      if (!sendToBackend.ok) {
         alert("Error Analzying");
         console.log("Error sending data to the backend");
         return;
@@ -41,8 +42,14 @@ export default function GetStartedPage() {
         throw new Error("Error getting data from the backend");
       }
       console.log("Successful, data recieved:", data);
-      
-    } catch (error) {}
+
+    } catch (error) { 
+        console.error('There was an error sending data to the backend', error); 
+        alert('Error Analyzing'); 
+        return; 
+    } finally { 
+        setLoading(false); 
+    }
   };
 
   return (
