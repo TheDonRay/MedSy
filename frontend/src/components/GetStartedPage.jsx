@@ -21,7 +21,7 @@ export default function GetStartedPage() {
     try {
       setLoading(true);
       // set up the response to actually send to the backend. 
-      const sendToBackend = await fetch(``, {
+      const sendToBackend = await fetch(`http://localhost:7687/api/v1/analyzesymptom`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
