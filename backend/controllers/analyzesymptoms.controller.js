@@ -3,7 +3,9 @@ const database = require("../model/symptoms.model.js");
 const OpenAi = require("openai");
 const client = new OpenAi({
   apiKey: process.env.openaiKEY,
-});
+}); 
+
+//TODO: next part work on the AI analysis part. 
 
 const analyzeSymptoms = async (req, res) => {
   const { userSymptoms } = req.body;
