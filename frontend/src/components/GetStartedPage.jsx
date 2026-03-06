@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 export default function GetStartedPage() {
   const [InputText, SetInputText] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false); 
+  const [medicine, setMedicine] = useState(null); 
   const navigate = useNavigate();
 
   const inputHandler = (event) => {
@@ -20,34 +21,38 @@ export default function GetStartedPage() {
     //button to take the input data and send the data to the backend here as such
     try {
       setLoading(true);
-      // set up the response to actually send to the backend. 
-      const sendToBackend = await fetch(`http://localhost:7687/api/v1/analyzesymptom`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      // set up the response to actually send to the backend.
+      const sendToBackend = await fetch(
+        `http://localhost:7687/api/v1/analyzesymptom`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ userSymptoms: InputText }),
         },
-        body: JSON.stringify({ userSymptoms: InputText }),
-      });
+      );
       // handle some validation if data was sent to the backend here as such
       if (!sendToBackend.ok) {
         alert("Error Analzying");
         console.log("Error sending data to the backend");
         return;
       }
-      //set up the wait time for the response
+      //set up the wait time for the response, so this here below gets the data from the backend here as such 
       const data = await sendToBackend.json();
 
       if (!data) {
         throw new Error("Error getting data from the backend");
       }
-      console.log("Successful, data recieved:", data);
-
-    } catch (error) { 
-        console.error('There was an error sending data to the backend', error); 
-        alert('Error Analyzing'); 
-        return; 
-    } finally { 
-        setLoading(false); 
+      // now we need to store the data from the backend that it is returning with a 200 status code as such 
+      setMedicine(data.MedicineAdvised);  
+      console.log('Data recieved from the backend'); 
+    } catch (error) {
+      console.error("There was an error sending data to the backend", error);
+      alert("Error Analyzing");
+      return;
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -109,12 +114,23 @@ export default function GetStartedPage() {
               onChange={inputHandler}
               placeholder="e.g. I have a headache and feel nauseous after taking my medication..."
             />
-          </div> 
+          </div>
           {/*TODO: here add the loading state when user presses the Analyze symptoms. */}
-          <button onClick={analyzebtn} className="gs-send-btn" disabled={loading}>
-            <span>Analyze Symptoms</span>
+          <button
+            onClick={analyzebtn}
+            className="gs-send-btn"
+            disabled={loading}
+          >
+            <span>{loading ? "Loading..." : "Analyze Symptoms"}</span>
             <span className="gs-btn-arrow">&rarr;</span>
           </button>
+
+          {medicine && (
+            <div className="result-card">
+              <p>Recommended Medicine:</p>
+              <h2>{medicine}</h2>
+            </div>
+          )}
         </div>
 
         <div className="gs-features">
@@ -137,13 +153,22 @@ export default function GetStartedPage() {
               <span className="disclaimer-label">Medical Disclaimer</span>
             </div>
             <p className="footer-text">
-              MedSy is intended for informational purposes only and does not constitute medical advice, diagnosis, or treatment. Always consult a qualified healthcare professional before making any health-related decisions. Never disregard professional medical advice or delay seeking it based on information from this platform. In the event of a medical emergency, contact your local emergency services immediately.
+              MedSy is intended for informational purposes only and does not
+              constitute medical advice, diagnosis, or treatment. Always consult
+              a qualified healthcare professional before making any
+              health-related decisions. Never disregard professional medical
+              advice or delay seeking it based on information from this
+              platform. In the event of a medical emergency, contact your local
+              emergency services immediately.
             </p>
           </div>
         </div>
         <div className="footer-bottom">
           <span>&copy; 2026 MedSy. All rights reserved.</span>
-          <span className="footer-bottom-note">For informational purposes only &mdash; not a substitute for professional medical advice.</span>
+          <span className="footer-bottom-note">
+            For informational purposes only &mdash; not a substitute for
+            professional medical advice.
+          </span>
         </div>
       </footer>
     </div>

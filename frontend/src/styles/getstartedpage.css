@@ -150,6 +150,34 @@
   transform: translateX(3px);
 }
 
+/* ===== Result Card ===== */
+.result-card {
+  margin-top: 20px;
+  padding: 20px 24px;
+  background: rgba(59, 130, 246, 0.06);
+  border: 1px solid rgba(59, 130, 246, 0.22);
+  border-radius: 14px;
+  text-align: center;
+}
+
+.result-card p {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+  margin-bottom: 8px;
+}
+
+.result-card h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+}
+
 /* ===== Feature Pills ===== */
 .gs-features {
   display: flex;
