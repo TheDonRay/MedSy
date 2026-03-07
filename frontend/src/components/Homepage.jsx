@@ -30,7 +30,7 @@ export default function Homepage() {
       {/* Navbar */}
       <nav className="navbar">
         <div className="nav-brand">
-          <img src="/newlogo.png" alt="MedSy Logo" className="nav-icon"/>
+          <img src="/newlogo.png" alt="MedSy Logo" className="nav-icon" />
           <span className="nav-title">MedSy</span>
         </div>
         <div className="nav-links">
@@ -293,7 +293,7 @@ export default function Homepage() {
       <footer className="footer">
         <div className="footer-content">
           <div className="footer-brand">
-            <img src="/newlogo.png" alt="MedSy Logo" className="nav-icon"/>
+            <img src="/newlogo.png" alt="MedSy Logo" className="nav-icon" />
             <span className="nav-title">MedSy</span>
           </div>
 

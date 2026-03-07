@@ -20,8 +20,10 @@ const HelperMedicineRecommendation = async (userSymptoms) => {
       },
     ],
   });
-  return AIsymptomAnalysis.choices[0].message.content;
-}; 
+  const medicineRec = AIsymptomAnalysis.choices[0].message.content;
+  console.log("Medicine returned was", medicineRec);
+  return medicineRec;
+};
 
 const analyzeSymptoms = async (req, res) => {
   const { userSymptoms } = req.body;
@@ -43,7 +45,8 @@ const analyzeSymptoms = async (req, res) => {
     console.log("User Symptoms have been Successfully saved to mongodb");
 
     // call the function here after saving
-    const MedicineRecommendation = await HelperMedicineRecommendation(userSymptoms); 
+    const MedicineRecommendation =
+      await HelperMedicineRecommendation(userSymptoms);
     // return data back to the frontend here as such
     return res.status(200).json({
       Symptoms: "logged successfully, and kept track of",

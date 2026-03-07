@@ -64,7 +64,7 @@ export default function GetStartedPage() {
 
       <nav className="navbar">
         <div className="nav-brand">
-          <img src="/newlogo.png" alt="MedSy Logo" className="nav-icon"/>
+          <img src="/newlogo.png" alt="MedSy Logo" className="nav-icon" />
           <span className="nav-title">MedSy</span>
         </div>
         <div className="nav-links">
@@ -99,9 +99,9 @@ export default function GetStartedPage() {
             How are you <span className="gradient-text">feeling today?</span>
           </h1>
           <p className="gs-subtitle">
-            Describe your symptoms and our AI will help you understand what you
-            might be experiencing and give back a possible medicine to counter
-            those symptoms.
+            Describe your symptoms, and our AI will help identify what you may
+            be experiencing and suggest possible medications that could help
+            relieve those symptoms.
           </p>
         </div>
 
@@ -143,7 +143,7 @@ export default function GetStartedPage() {
       <footer className="footer">
         <div className="footer-content">
           <div className="footer-brand">
-            <img src="/newlogo.png" alt="MedSy Logo" className="nav-icon"/>
+            <img src="/newlogo.png" alt="MedSy Logo" className="nav-icon" />
             <span className="nav-title">MedSy</span>
           </div>
 
