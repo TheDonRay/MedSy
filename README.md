@@ -4,7 +4,11 @@
 
 ## Overview
 
-MedSy is an intelligent health companion application that helps users manage their medications, monitor symptoms, and gain deeper understanding of their treatments through AI-powered insights. Whether you're managing chronic conditions, tracking multiple prescriptions, or simply want to stay informed about your medications, MedSy provides the tools you need.
+MedSy is an intelligent health companion application that helps users manage their medications, monitor symptoms, and gain deeper understanding of their treatments through AI-powered insights. Whether you're managing chronic conditions, tracking multiple prescriptions, or simply want to stay informed about your medications, MedSy provides the tools you need. 
+
+MedSy uses an external medical API from the National Library of Medicine to retrieve medication data, which is then analyzed using AI to provide educational insights. 
+
+**Disclaimer**: MedSy is intended for educational purposes only. Any medical information provided should always be verified and confirmed by a licensed physician or healthcare professional.
 
 ## Features
 
