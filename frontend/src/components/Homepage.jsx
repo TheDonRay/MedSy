@@ -30,7 +30,7 @@ export default function Homepage() {
       {/* Navbar */}
       <nav className="navbar">
         <div className="nav-brand">
-          <span className="nav-icon">&#9883;</span>
+          <img src="/newlogo.png" alt="MedSy Logo" className="nav-icon"/>
           <span className="nav-title">MedSy</span>
         </div>
         <div className="nav-links">

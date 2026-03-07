@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 export default function GetStartedPage() {
   const [InputText, SetInputText] = useState("");
-  const [loading, setLoading] = useState(false); 
-  const [medicine, setMedicine] = useState(null); 
+  const [loading, setLoading] = useState(false);
+  const [medicine, setMedicine] = useState(null);
   const navigate = useNavigate();
 
   const inputHandler = (event) => {
@@ -38,15 +38,15 @@ export default function GetStartedPage() {
         console.log("Error sending data to the backend");
         return;
       }
-      //set up the wait time for the response, so this here below gets the data from the backend here as such 
+      //set up the wait time for the response, so this here below gets the data from the backend here as such
       const data = await sendToBackend.json();
 
       if (!data) {
         throw new Error("Error getting data from the backend");
       }
-      // now we need to store the data from the backend that it is returning with a 200 status code as such 
-      setMedicine(data.MedicineAdvised);  
-      console.log('Data recieved from the backend'); 
+      // now we need to store the data from the backend that it is returning with a 200 status code as such
+      setMedicine(data.MedicineAdvised);
+      console.log("Data recieved from the backend");
     } catch (error) {
       console.error("There was an error sending data to the backend", error);
       alert("Error Analyzing");

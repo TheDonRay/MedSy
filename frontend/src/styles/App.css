@@ -153,8 +153,8 @@ body {
 }
 
 .nav-icon {
-  font-size: 1.6rem;
-  color: var(--accent-blue);
+  height: 42px; 
+  width: auto; 
 }
 
 .nav-title {
