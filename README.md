@@ -9,17 +9,20 @@ MedSy is an intelligent health companion application that helps users manage the
 ## Features
 
 ### 🔔 Medication Tracking
+
 - Search your medicine.
-- View its side effects and details. 
-- Get real insight to its side effects and usage. 
+- View its side effects and details.
+- Get real insight to its side effects and usage.
 
 ### 🤖 AI-Assisted Insights
+
 - Get intelligent explanations about your medications
 - Understand potential drug interactions
 - Receive personalized insights based on your symptom logs
 - Ask questions about your treatment in natural language
 
 ### 📱 User-Friendly Interface
+
 - Clean, intuitive design for easy daily use
 - Quick-add functionality for medications and symptoms
 - Dashboard view of your health overview
@@ -36,28 +39,33 @@ MedSy is an intelligent health companion application that helps users manage the
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/yourusername/MedSy.git
 cd MedSy
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Set up environment variables:
+
 ```bash
 cp .env.example .env
 ```
 
 4. Configure your `.env` file with necessary API keys:
+
 ```
 ANTHROPIC_API_KEY=your_api_key_here
 DATABASE_URL=your_database_url
 ```
 
 5. Run the development server:
+
 ```bash
 npm run dev
 ```
@@ -97,6 +105,5 @@ npm run dev
 2. Ask questions about your medications or symptoms
 3. View AI-generated explanations and recommendations
 4. Save important insights for later reference
-
 
 ~ Lets keep on building.

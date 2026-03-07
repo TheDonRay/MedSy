@@ -293,7 +293,7 @@ export default function Homepage() {
       <footer className="footer">
         <div className="footer-content">
           <div className="footer-brand">
-            <span className="nav-icon">&#9883;</span>
+            <img src="/newlogo.png" alt="MedSy Logo" className="nav-icon"/>
             <span className="nav-title">MedSy</span>
           </div>
 

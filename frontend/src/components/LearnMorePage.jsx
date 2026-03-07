@@ -13,7 +13,7 @@ export default function LearnMorePage() {
 
       <nav className="navbar">
         <div className="nav-brand">
-          <span className="nav-icon">&#9883;</span>
+          <img src="/newlogo.png" alt="MedSy Logo" className="nav-icon"/>
           <span className="nav-title">MedSy</span>
         </div>
         <div className="nav-links">
@@ -150,7 +150,7 @@ export default function LearnMorePage() {
       <footer className="footer">
         <div className="footer-content">
           <div className="footer-brand">
-            <span className="nav-icon">&#9883;</span>
+            <img src="/newlogo.png" alt="MedSy Logo" className="nav-icon"/>
             <span className="nav-title">MedSy</span>
           </div>
 
