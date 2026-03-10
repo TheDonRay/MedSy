@@ -1,10 +1,15 @@
-const externalAPIInfo = require("../services/RxNormAPI.services.js"); 
+const { HelperMedicineRecommendation } = require('../controllers/analyzesymptoms.controller.js');  
+const { externalAPI } = require('../services/RxNormAPI.services.js'); 
 
-const inforMedication = async (req, res) => {  
-    const externalAPIdata = externalAPIInfo; 
-    // route to get the medicine 
+const inforMedication = async (req, res) => {   
+    // remember to get the users response here as such 
+    const { userSymptoms } = req.body;  
+
+    const medicineRecieved = await HelperMedicineRecommendation(userSymptoms); 
+    // call the external service function here to the medicine  
+    const callexternalAPI = await externalAPI(medicineRecieved); 
     res.status(200).json({ 
-        Response: externalAPIdata
+        Data: callexternalAPI
     }); 
 };  
 
