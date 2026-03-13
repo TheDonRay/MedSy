@@ -1,4 +1,4 @@
-//TODO: Update this mongoDB schema model here 
+//TODO: Update this mongoDB schema model here
 
 const mongoose = require("mongoose");
 

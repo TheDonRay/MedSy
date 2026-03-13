@@ -1,6 +1,7 @@
-
 // add mongodb schema here below 
 
+//extenal medicine function here as such 
+const { MedicineProperties } = require('../services/MedicineProperties.services.js'); 
 
 const externalAPI = async (medicineAdvised) => {
   const endpoints = new URLSearchParams({
@@ -14,26 +15,36 @@ const externalAPI = async (medicineAdvised) => {
     // set up the fetch request here such that it gets sent to the frontend UI and manipulating that data
     const getMedicalData = await fetch(URL);
 
-    if (!getMedicalData) {
-      throw new Error("Error not a valid medicine details found from Library");
+    if (!getMedicalData.ok) {
+      throw new Error(`HTTP error: ${getMedicalData.status}`);
     }
-
+    // returns an
     const resFromExternalAPI = await getMedicalData.json();
 
     if (!resFromExternalAPI) {
       throw new Error("No data recieved from the external API");
-    } 
+    }
 
-    // TODO: going to map this data to like object then export that. 
-    const rxcuiData = resFromExternalAPI.map((fields) => ({ 
-        rxcui:fields.drugGroup.conceptGroup.contentProperties, 
-        name: fields.drugGroup.conceptGroup.name,  
-        synonym: fields.drugGroup.conceptGroup.synonym, 
-    })); 
+    // TODO: going to map this data to like object then export that.
+    const groups = resFromExternalAPI.drugGroup?.conceptGroup ?? [];
 
-    console.log('Medical Information recieved:', rxcuiData); 
+    const rxcuiData = groups
+      .filter((group) => group.conceptProperties)
+      .flatMap((group) =>
+        group.conceptProperties.map((concept) => ({
+          rxcui: concept.rxcui,
+          name: concept.name,
+          synonym: concept.synonym ?? null,
+        })),
+      );
 
-    return rxcuiData; 
+    if (rxcuiData.length === 0) {
+      throw new Error("No data received from the external API");
+    }
+    console.log("Medical Information recieved:", rxcuiData);
+    // call the function here to export it with the data  
+    const structuredData = await MedicineProperties(rxcuiData); 
+    return structuredData;  
   } catch (error) {
     console.log("Error recieving data from the backend", error);
     return false;
